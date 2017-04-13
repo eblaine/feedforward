@@ -1,0 +1,13 @@
+.bold {
+	font-weight: bold;
+}
+.italic {
+	font-style: italic;
+}
+.small {
+	font-size: 8px;
+}
+body {
+	margin: 20px;
+	padding: 20px;
+}

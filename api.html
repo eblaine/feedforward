@@ -1,0 +1,90 @@
+<!-- 
+  API Calls and Data Structures for FeedForward app
+  Authors: Ellen Blaine, Anirudh Jain, Vikas Maturi, Sophia Pink, Matthew Sun
+-->
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8" />
+    <title></title>
+    <link rel="stylesheet" href="style.css" />
+    <script data-require="jquery" data-semver="2.1.4" src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <!--<script src="canvas.js"></script>-->
+<!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  </head>
+
+  <body>
+    <title>FeedForward API Spec</title>
+
+    <h2>Summary</h2>
+    <table class="table table-bordered table-striped">
+      <thead>
+        <tr>
+          <th>Path</th>
+          <th>Operation</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <a>/clients</a>
+          </td>          
+          <td>
+            <a href="#clients-get">GET</a>
+          </td>
+          <td>
+            Returns list of all clients
+          </td>
+        </tr>
+
+      </tbody>
+    </table>
+
+    <h2>Calls</h2>
+    <div id="clients-get" class="panel panel-default">
+      <div class="panel-heading">GET /clients</div>
+      <div class="panel-body">
+        <h4>DESCRIPTION</h4>
+        <p>Returns a list of all SHFB clients at all sites</p>
+
+        <h4>RESPONSES</h4>
+        <h5>200 OK</h5>
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <b>ITEMS</b>
+            <p><a href="#client-data">Client</a></p>
+          </div>
+        </div>
+      </div>
+      </div>
+    </div>
+
+    <h2>Data Structures</h2>
+
+    <div id="client-data" class="panel panel-default">
+      <div class="panel-heading">Client</div>
+      <div class="panel-body">
+        <h4>Properties</h4>
+        <!-- EXAMPLE FIELD -->
+        <div class="property">
+          <span class="bold">id: </span>
+          <span class="italic">number </span>
+          <span class="small bold">(long)</span> 
+          <p>A unique id for clients</p>
+        </div>
+      </div>
+    </div>
+    
+
+  </body>
+
+</html>
