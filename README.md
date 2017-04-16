@@ -9,6 +9,7 @@ After you've cloned the project and installed the above, run:
 ```
 cd feedForwardApp
 npm install
+bower install
 ionic serve
 ```
 
