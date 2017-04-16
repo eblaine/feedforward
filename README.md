@@ -14,6 +14,6 @@ ionic serve
 
 On my machine, this starts a server and launches the app automatically. 
 
-Note that there are two apps running on this server. The first is an Ionic tabs application for mobile. It's located at <server url>/ (e.g. <ip>:8100/)
+Note that there are two apps running on this server. The first is an Ionic tabs application for mobile. It's located at a_domain:a_port/ (e.g. 0.0.0.0:8100/)
 
-The second is a web application for Second Harvest employees. It's located at <server url>/admin.html
+The second is a web application for Second Harvest employees. It's located at a_domain:a_port/admin.html
