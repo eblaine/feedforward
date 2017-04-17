@@ -1,11 +1,69 @@
-<ion-view view-title="Client Check-in">
+<ion-view view-title="{{selectedSite.metadata.name || 'Client Check-in'}}">
+  <ion-nav-buttons side="left">
+    <button ng-if="selectedSite" ng-click="updateSite(null)" class="button button-icon icon ion-chevron-left">Change site</button>
+  </ion-nav-buttons>
   <ion-content class="padding">
-    <h2>Welcome to Mountain View Hispanic!</h2>
-    <p>
-    This is where we check people in!
-    </p>
-    <div>
-      Test: {{test}}
+    <div ng-if="selectedSite">
+      <!--This is deprecated apparently, but the ion-slides is broken-->
+      <ion-slide-box on-slide-changed="">
+        <ion-slide ng-repeat="panel in nutritionPanels">
+          <h3>{{panel.title}}</h3>
+          <div style="padding-bottom: 40px">{{panel.text}}</div>
+        </ion-slide>
+      </ion-slide-box>
+
+      <label class="item item-input item-select">
+        <div class="input-label">Client name:</div>
+        <select ng-model="selectedClient" ng-options="client as client.name for client in selectedSite.metadata.clients" ng-change="updateClient(selectedClient)">
+        </select>
+      </label>
+
+      <!--<input ion-autocomplete autocomplete="off" readonly="true" class="ion-autocomplete" type="text" class="ion-autocomplete"-->
+             <!--ng-model="selectedClient"-->
+             <!--item-value-key="id"-->
+             <!--item-view-value-key="name"-->
+             <!--items-method="getClients(query)"-->
+             <!--items-method-value-key="clients"-->
+             <!--placeholder="Client name..."/>-->
+
+
+      <!--<ion-slides slider="data.sliderDelegate" options="data.sliderOptions">-->
+        <!--<ion-slide-page ng-repeat="panel in nutritionPanels">-->
+          <!--<img src="{{panel.imgSource}}">-->
+          <!--<p>{{panel.caption}}</p>-->
+        <!--</ion-slide-page>-->
+      <!--</ion-slides>-->
+      <!--<div id="{{selectedSite}}_carousel" class="carousel slide" data-ride="carousel">-->
+        <!--<div class="carousel-inner" role="listbox">-->
+          <!--<div class="carousel-item" ng-repeat="panel in nutritionPanels track by $index">-->
+            <!--<img class="d-block img-fluid" src="{{panel.imgSource}}" alt="{{$index}}" style="width: 100%">-->
+            <!--<div class="carousel-caption d-none d-md-block">-->
+              <!--<p>{{panel.caption}}</p>-->
+            <!--</div>-->
+          <!--</div>-->
+        <!--</div>-->
+      <!--</div>-->
+
     </div>
+    <div ng-if="!selectedSite">
+      <h2>Where are you?</h2>
+      <label class="item item-input item-select">
+        <div class="input-label">
+          Site:
+        </div>
+
+        <select ng-model="selectedSite" ng-options="site as site.metadata.name for site in sites" ng-change="updateSite(selectedSite)">
+        </select>
+      </label>
+    </div>
+
   </ion-content>
 </ion-view>
+
+<!--<ion-view view-title="Select Site" ng-if="!selectedSite">-->
+  <!--<ion-content class="padding">-->
+    <!--<h2>Please select your site:</h2>-->
+    <!--<select ng-model="selectedSite" ng-options="site as site.metadata.name for site in sites"></select>-->
+  <!--</ion-content>-->
+
+<!--</ion-view>-->

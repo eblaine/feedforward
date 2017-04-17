@@ -9,8 +9,12 @@ angular.module('feedForwardApp', ['ionic',
   // mostly just placeholder-y
   'controllers.checkinCtrl',
   'controllers.checkoutCtrl',
+  'controllers.siteSelectCtrl',
+  'controllers.surveyCtrl',
   'services.checkinService',
-  'services.checkoutService'])
+  'services.checkoutService',
+  'services.siteService',
+  'ion-autocomplete'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -63,6 +67,12 @@ angular.module('feedForwardApp', ['ionic',
           controller: 'CheckoutCtrl'
         }
       }
+  })
+
+  .state('survey', {
+    url: '/survey',
+    templateUrl: 'templates/survey.html',
+    controller: 'SurveyCtrl'
   });
 
   // if none of the above states are matched, use this as the fallback
