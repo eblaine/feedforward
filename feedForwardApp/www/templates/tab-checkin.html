@@ -1,14 +1,16 @@
 <ion-view view-title="{{selectedSite.metadata.name || 'Client Check-in'}}">
   <ion-nav-buttons side="left">
-    <button ng-if="selectedSite" ng-click="updateSite(null)" class="button button-icon icon ion-chevron-left">Change site</button>
+    <button ng-if="selectedSite" ng-click="updateSite(null)" class="button button-icon icon ion-chevron-left"></button>
   </ion-nav-buttons>
   <ion-content class="padding">
     <div ng-if="selectedSite">
       <!--This is deprecated apparently, but the ion-slides is broken-->
       <ion-slide-box on-slide-changed="">
         <ion-slide ng-repeat="panel in nutritionPanels">
-          <h3>{{panel.title}}</h3>
-          <div style="padding-bottom: 40px">{{panel.text}}</div>
+          <h3>Today's Featured Foods</h3>
+          <h4>{{panel.title}}</h4>
+          <div>{{panel.text}}</div>
+          <div style="padding-bottom: 40px">Prep: Steam, roast with olive oil, or sautee with salt and pepper</div>
         </ion-slide>
       </ion-slide-box>
 
@@ -46,10 +48,10 @@
 
     </div>
     <div ng-if="!selectedSite">
-      <h2>Where are you?</h2>
+      <h2>Welcome to Second Harvest!</h2>
       <label class="item item-input item-select">
         <div class="input-label">
-          Site:
+          Choose your distribution site:
         </div>
 
         <select ng-model="selectedSite" ng-options="site as site.metadata.name for site in sites" ng-change="updateSite(selectedSite)">
