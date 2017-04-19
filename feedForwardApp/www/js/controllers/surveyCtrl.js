@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('controllers.surveyCtrl', [])
-  .controller('SurveyCtrl', ['$scope', '$location', 'siteService', function($scope, $location, siteService) {
+  .controller('SurveyCtrl', ['$scope', '$location', '$stateParams', 'siteService', function($scope, $location, $stateParams, siteService) {
     // With the new view caching in Ionic, Controllers are only called
     // when they are recreated or on app start, instead of every page change.
     // To listen for when this page is active (for example, to refresh data),
@@ -39,7 +39,7 @@ angular.module('controllers.surveyCtrl', [])
 
     $scope.startOver = function() {
       $scope.questionNo = 0;
-      $location.path('/tab/checkin');
+      $location.path('/tab/checkin/' + $stateParams.siteId);
     }
 
   }]);

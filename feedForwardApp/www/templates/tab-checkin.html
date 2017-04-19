@@ -1,72 +1,19 @@
-<ion-view view-title="{{selectedSite.metadata.name || 'Client Check-in'}}">
-  <ion-nav-buttons side="left">
-    <button ng-if="selectedSite" ng-click="updateSite(null)" class="button button-icon icon ion-chevron-left"></button>
-  </ion-nav-buttons>
+<ion-view view-title="Client Check-in">
   <ion-content class="padding">
-    <div ng-if="selectedSite">
-      <!--This is deprecated apparently, but the ion-slides is broken-->
-      <h3>Today's Featured Foods</h3>
-
-      <ion-slide-box on-slide-changed="">
-        <ion-slide ng-repeat="panel in nutritionPanels">
-
-          <h4>{{panel.title}}</h4>
-          <div>{{panel.text}}</div>
-          <div style="padding-bottom: 40px">Prep: Steam, roast with olive oil, or sautee with salt and pepper</div>
-        </ion-slide>
-      </ion-slide-box>
-
-      <div class="input-label">Client name:</div>
-      <ff-search ng-model="selectedClient" data="clientSearchData" ng-change="updateClient(selectedClient)"></ff-search>
-
-      <!--<label class="item item-input item-select">-->
-        <!---->
-        <!--&lt;!&ndash;<select ng-model="selectedClient" ng-options="client as client.name for client in selectedSite.metadata.clients" ng-change="updateClient(selectedClient)">&ndash;&gt;-->
-        <!--&lt;!&ndash;</select>&ndash;&gt;-->
-        <!--<ff-search ng-model="selectedClient" data="selectedSite.metadata.clients" ng-change="updateClient(selectedClient)" label-field="name"></ff-search>-->
-      <!--</label>-->
-
-      <!--<input ion-autocomplete autocomplete="off" readonly="true" class="ion-autocomplete" type="text" class="ion-autocomplete"-->
-             <!--ng-model="selectedClient"-->
-             <!--item-value-key="id"-->
-             <!--item-view-value-key="name"-->
-             <!--items-method="getClients(query)"-->
-             <!--items-method-value-key="clients"-->
-             <!--placeholder="Client name..."/>-->
-
-
-      <!--<ion-slides slider="data.sliderDelegate" options="data.sliderOptions">-->
-        <!--<ion-slide-page ng-repeat="panel in nutritionPanels">-->
-          <!--<img src="{{panel.imgSource}}">-->
-          <!--<p>{{panel.caption}}</p>-->
-        <!--</ion-slide-page>-->
-      <!--</ion-slides>-->
-      <!--<div id="{{selectedSite}}_carousel" class="carousel slide" data-ride="carousel">-->
-        <!--<div class="carousel-inner" role="listbox">-->
-          <!--<div class="carousel-item" ng-repeat="panel in nutritionPanels track by $index">-->
-            <!--<img class="d-block img-fluid" src="{{panel.imgSource}}" alt="{{$index}}" style="width: 100%">-->
-            <!--<div class="carousel-caption d-none d-md-block">-->
-              <!--<p>{{panel.caption}}</p>-->
-            <!--</div>-->
-          <!--</div>-->
-        <!--</div>-->
-      <!--</div>-->
-
-    </div>
-    <div ng-if="!selectedSite">
+    <div>
       <h2>Welcome to Second Harvest!</h2>
-      <label class="item item-input item-select">
-        <!--<div class="input-label">Choose your distribution site:</div>-->
-        <!--<ff-search ng-model="selectedSite" data="clientSearchData" ng-change="updateClient(selectedClient)"></ff-search>-->
+      <!--<label class="item item-input item-select">-->
+      <div>Choose your distribution site:</div>
+      <ff-search ng-model="selectedSite" data="siteSearchData" type="site"></ff-search>
 
 
-        <div class="input-label">
-          Choose your distribution site:
-        </div>
+        <!--<div class="input-label">-->
+          <!--Choose your distribution site:-->
+        <!--</div>-->
 
-        <select ng-model="selectedSite" ng-options="site as site.metadata.name for site in sites" ng-change="updateSite(selectedSite)">
-        </select>
-      </label>
+        <!--<select ng-model="selectedSite" ng-options="site as site.metadata.name for site in sites" ng-change="updateSite(selectedSite)">-->
+        <!--</select>-->
+      <!--</label>-->
     </div>
 
   </ion-content>

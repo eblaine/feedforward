@@ -5,8 +5,10 @@ angular.module('services.siteService', ['lodash'])
           var self = this;
           self.sites = [
             {
+              id: '1',
               metadata: {
                 name: 'Site 1',
+
                 languages: ['Spanish', 'Vietnamese'],
                 clients: [
                   {
@@ -26,8 +28,10 @@ angular.module('services.siteService', ['lodash'])
               surveys: ['1', '2', '3', '4']
             },
             {
+              id: '2',
               metadata: {
                 name: 'Site 2',
+
                 languages: ['Chinese', 'Vietnamese'],
                 clients: [
                   {

@@ -11,6 +11,7 @@ angular.module('feedForwardApp', ['ionic',
   'controllers.checkoutCtrl',
   'controllers.siteSelectCtrl',
   'controllers.surveyCtrl',
+  'controllers.checkinSiteCtrl',
   'services.checkinService',
   'services.checkoutService',
   'services.siteService',
@@ -50,6 +51,16 @@ angular.module('feedForwardApp', ['ionic',
 
   // Each tab has its own nav history stack:
 
+  .state('tab.sitecheckin', {
+    url: '/checkin/:siteId',
+    views: {
+      'tab-checkin': {
+        templateUrl: 'templates/tab-checkin-site.html',
+        controller: 'CheckinSiteCtrl'
+      }
+    }
+  })
+
   .state('tab.checkin', {
     url: '/checkin',
     views: {
@@ -71,7 +82,7 @@ angular.module('feedForwardApp', ['ionic',
   })
 
   .state('survey', {
-    url: '/survey',
+    url: '/survey/:siteId',
     templateUrl: 'templates/survey.html',
     controller: 'SurveyCtrl'
   });
