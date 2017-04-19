@@ -5,20 +5,26 @@
   <ion-content class="padding">
     <div ng-if="selectedSite">
       <!--This is deprecated apparently, but the ion-slides is broken-->
+      <h3>Today's Featured Foods</h3>
+
       <ion-slide-box on-slide-changed="">
         <ion-slide ng-repeat="panel in nutritionPanels">
-          <h3>Today's Featured Foods</h3>
+
           <h4>{{panel.title}}</h4>
           <div>{{panel.text}}</div>
           <div style="padding-bottom: 40px">Prep: Steam, roast with olive oil, or sautee with salt and pepper</div>
         </ion-slide>
       </ion-slide-box>
 
-      <label class="item item-input item-select">
-        <div class="input-label">Client name:</div>
-        <select ng-model="selectedClient" ng-options="client as client.name for client in selectedSite.metadata.clients" ng-change="updateClient(selectedClient)">
-        </select>
-      </label>
+      <div class="input-label">Client name:</div>
+      <ff-search ng-model="selectedClient" data="clientSearchData" ng-change="updateClient(selectedClient)"></ff-search>
+
+      <!--<label class="item item-input item-select">-->
+        <!---->
+        <!--&lt;!&ndash;<select ng-model="selectedClient" ng-options="client as client.name for client in selectedSite.metadata.clients" ng-change="updateClient(selectedClient)">&ndash;&gt;-->
+        <!--&lt;!&ndash;</select>&ndash;&gt;-->
+        <!--<ff-search ng-model="selectedClient" data="selectedSite.metadata.clients" ng-change="updateClient(selectedClient)" label-field="name"></ff-search>-->
+      <!--</label>-->
 
       <!--<input ion-autocomplete autocomplete="off" readonly="true" class="ion-autocomplete" type="text" class="ion-autocomplete"-->
              <!--ng-model="selectedClient"-->
@@ -50,6 +56,10 @@
     <div ng-if="!selectedSite">
       <h2>Welcome to Second Harvest!</h2>
       <label class="item item-input item-select">
+        <!--<div class="input-label">Choose your distribution site:</div>-->
+        <!--<ff-search ng-model="selectedSite" data="clientSearchData" ng-change="updateClient(selectedClient)"></ff-search>-->
+
+
         <div class="input-label">
           Choose your distribution site:
         </div>

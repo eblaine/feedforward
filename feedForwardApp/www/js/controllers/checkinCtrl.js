@@ -6,8 +6,10 @@ angular.module('controllers.checkinCtrl', [])
     $scope.sites = siteService.getSites();
 
     $scope.updateSite = function(newSite) {
+      console.log(newSite);
       $scope.selectedSite = newSite;
       siteService.setSite(newSite);
+      $scope.clientSearchData = $scope.constructClientSearch($scope.selectedSite.metadata.clients);
     }
 
     // note: can use services to make data persist as needed
@@ -67,6 +69,22 @@ angular.module('controllers.checkinCtrl', [])
 
     setupSlider();
     $scope.selectedSite = siteService.getSelectedSite();
+
+    $scope.constructClientSearch = function(data) {
+      return lodash.map(data, function(o) {return {'name': o.name, 'data': o};});
+    }
+    $scope.constructSiteSearch = function(data) {
+      return lodash.map(data, function(o) {return {'name': o.metadata.name, 'data': o};});
+    }
+
+    $scope.siteSearchData = $scope.constructSiteSearch($scope.sites);
+
+
+//    $scope.getClientName = function(client) {
+//      console.log(client);
+//      return client.name;
+//    }
+
 //    console.log($scope.test);
     // later, will be checkinService.getSites(...).then(...)
   }]);
