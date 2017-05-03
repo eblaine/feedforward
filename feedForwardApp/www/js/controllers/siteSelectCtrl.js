@@ -2,5 +2,7 @@
 
 angular.module('controllers.siteSelectCtrl', [])
   .controller('SiteSelectCtrl', ['$scope', 'siteService', function($scope, siteService) {
-    $scope.sites = siteService.getSites();
+    siteService.getSites().then(function() {
+      $scope.sites = siteService.sites;
+    });
   }]);

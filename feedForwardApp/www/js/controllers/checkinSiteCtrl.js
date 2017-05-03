@@ -2,7 +2,7 @@
 
 angular.module('controllers.checkinSiteCtrl', [])
   .controller('CheckinSiteCtrl', ['$scope', '$location', '$stateParams', 'checkinService', 'siteService', 'lodash', function($scope, $location, $stateParams, checkinService, siteService, lodash) {
-    $scope.sites = siteService.getSites();
+
     $scope.updateSite = function(newSite) {
       $scope.selectedSite = newSite;
       siteService.setSite(newSite);
@@ -10,6 +10,17 @@ angular.module('controllers.checkinSiteCtrl', [])
         $scope.clientSearchData = $scope.constructClientSearch($scope.selectedSite.metadata.clients);
       } else {
         $location.path('/tab/checkin');
+      }
+    }
+
+    function initSite() {
+      var siteId = parseInt($stateParams.siteId);
+      if (siteId) {
+        var selected = lodash.find($scope.sites, {'id': siteId});
+        console.log(selected);
+        console.log($scope.sites);
+        console.log($stateParams.siteId);
+        $scope.updateSite(selected);
       }
     }
 
@@ -60,28 +71,15 @@ angular.module('controllers.checkinSiteCtrl', [])
       return lodash.map(data, function(o) {return {'name': o.name, 'data': o};});
     }
 
-    var siteId = $stateParams.siteId;
-    if (siteId) {
-      var selected = lodash.find($scope.sites, {'id': $stateParams.siteId});
-      console.log(selected)
-      $scope.updateSite(selected);
-    }
-
     $scope.chooseSite = function() {
       $location.path('/tab/checkin');
     }
 
 
-//
-//
-//    $scope.siteSearchData = $scope.constructSiteSearch($scope.sites);
+    siteService.getSites().then(function() {
+      $scope.sites = siteService.sites;
+      initSite();
+    });
 
 
-//    $scope.getClientName = function(client) {
-//      console.log(client);
-//      return client.name;
-//    }
-
-//    console.log($scope.test);
-    // later, will be checkinService.getSites(...).then(...)
   }]);

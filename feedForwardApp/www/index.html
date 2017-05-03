@@ -22,6 +22,19 @@
     <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
     <link href="css/ionic.app.css" rel="stylesheet">
     -->
+    <script src="https://www.gstatic.com/firebasejs/3.9.0/firebase.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyDN5p-3CoA27cE_1utcgfzGXgyPMcRj3Zw",
+        authDomain: "feedforward-4cade.firebaseapp.com",
+        databaseURL: "https://feedforward-4cade.firebaseio.com",
+        projectId: "feedforward-4cade",
+        storageBucket: "feedforward-4cade.appspot.com",
+        messagingSenderId: "954630118661"
+      };
+      firebase.initializeApp(config);
+    </script>
 
     <!-- ionic/angularjs js -->
     <script src="lib/ionic/js/ionic.bundle.js"></script>
