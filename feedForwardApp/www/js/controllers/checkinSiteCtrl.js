@@ -14,12 +14,9 @@ angular.module('controllers.checkinSiteCtrl', [])
     }
 
     function initSite() {
-      var siteId = parseInt($stateParams.siteId);
+      var siteId = $stateParams.siteId;
       if (siteId) {
-        var selected = lodash.find($scope.sites, {'id': siteId});
-        console.log(selected);
-        console.log($scope.sites);
-        console.log($stateParams.siteId);
+        var selected = lodash.find($scope.sites, {'$id': siteId});
         $scope.updateSite(selected);
       }
     }
@@ -67,19 +64,32 @@ angular.module('controllers.checkinSiteCtrl', [])
     };
 
     setupSlider();
+
+    // search for client
     $scope.constructClientSearch = function(data) {
       return lodash.map(data, function(o) {return {'name': o.name, 'data': o};});
     }
 
+    // change sites
     $scope.chooseSite = function() {
       $location.path('/tab/checkin');
     }
 
-
-    siteService.getSites().then(function() {
-      $scope.sites = siteService.sites;
+    var sites = siteService.getSites();
+    sites.$loaded()
+    .then(function (data) {
+      $scope.sites = data;
       initSite();
-    });
+    })
+    .catch(function (error) {
+      console.error(error);
+    })
+
+
+
+
+
+
 
 
   }]);

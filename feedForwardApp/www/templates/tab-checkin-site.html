@@ -4,17 +4,18 @@
   <ion-content class="padding">
     <div>
       <!--This is deprecated apparently, but the ion-slides is broken-->
-      <h3>Today's Featured Foods</h3>
+      <!--<h3>Today's Featured Foods</h3>-->
 
-      <ion-slide-box on-slide-changed="">
-        <ion-slide ng-repeat="panel in nutritionPanels">
+      <!--<ion-slide-box on-slide-changed="">-->
+        <!--<ion-slide ng-repeat="panel in nutritionPanels">-->
 
-          <h4>{{panel.title}}</h4>
-          <div>{{panel.text}}</div>
-          <div style="padding-bottom: 40px">Prep: Steam, roast with olive oil, or sautee with salt and pepper</div>
-        </ion-slide>
-      </ion-slide-box>
+          <!--<h4>{{panel.title}}</h4>-->
+          <!--<div>{{panel.text}}</div>-->
+          <!--<div style="padding-bottom: 40px">Prep: Steam, roast with olive oil, or sautee with salt and pepper</div>-->
+        <!--</ion-slide>-->
+      <!--</ion-slide-box>-->
 
+      <h3>Check-in</h3>
       <div class="input-label">Client name:</div>
       <ff-search ng-model="selectedClient" data="clientSearchData" type="survey"></ff-search>
       <ion-button class="button button-block" color="secondary" ng-click="chooseSite()">Change Site</a></ion-button>

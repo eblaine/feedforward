@@ -30,9 +30,10 @@ angular.module('directives.ffSearch', [])
                 scope.changeView = function(item) {
                   if (scope.type === 'survey') {
                     var site = siteService.getSelectedSite();
-                    $location.path('/survey/' + site.id);
+                    console.log(site);
+                    $location.path('/survey/' + site.$id);
                   } else if (scope.type === 'site') {
-                    $location.path('/tab/checkin/' + item.data.id);
+                    $location.path('/tab/checkin/' + item.data.$id);
                   }
                 }
 

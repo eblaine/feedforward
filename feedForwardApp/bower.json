@@ -8,6 +8,7 @@
   "dependencies": {
     "lodash": "^4.17.4",
     "angular-swiper": "^0.4.0",
-    "ion-autocomplete": "^0.4.0"
+    "ion-autocomplete": "^0.4.0",
+    "angularfire": "^2.3.0"
   }
 }

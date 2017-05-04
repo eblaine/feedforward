@@ -16,7 +16,8 @@ angular.module('feedForwardApp', ['ionic',
   'services.checkoutService',
   'services.siteService',
   'directives.ffSearch',
-  'ion-autocomplete'])
+  'ion-autocomplete',
+  'firebase'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
