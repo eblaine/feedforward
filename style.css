@@ -11,3 +11,7 @@ body {
 	margin: 20px;
 	padding: 20px;
 }
+
+ff-search {
+    display: block!important;
+}

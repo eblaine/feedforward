@@ -17,7 +17,15 @@
 
       <h3>Check-in</h3>
       <div class="input-label">Client name:</div>
-      <ff-search ng-model="selectedClient" data="clientSearchData" type="survey"></ff-search>
+      <!--TODO: figure out custom directives. for now...-->
+      <label class="item item-input">
+        <input type="text" ng-model="data.searchText" placeholder="Search..." ng-change="updateMatches()">
+      </label>
+      <ion-list>
+        <ion-item ng-repeat="item in matches" ng-click="changeView(item)">{{item.name}}</ion-item>
+      </ion-list>
+
+      <!--<ff-search ng-model="selectedClient" data="clientSearchData" type="survey"></ff-search>-->
       <ion-button class="button button-block" color="secondary" ng-click="chooseSite()">Change Site</a></ion-button>
 
       <!--<label class="item item-input item-select">-->

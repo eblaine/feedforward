@@ -85,6 +85,24 @@ angular.module('controllers.checkinSiteCtrl', [])
       console.error(error);
     })
 
+    // angular JS "always have a dot in your model"
+    $scope.data = {searchText: ''};
+
+    $scope.updateMatches = function() {
+      if (!$scope.data.searchText) {
+        return;
+      }
+      $scope.matches = lodash.filter($scope.clientSearchData, function(o) {
+        var nameInsensitiveCase = o.name.toLowerCase();
+        return nameInsensitiveCase.includes($scope.data.searchText.toLowerCase());
+      });
+    };
+
+//
+    $scope.changeView = function(item) {
+      $location.path('/survey/' + $scope.selectedSite.$id);
+    }
+
 
 
 
