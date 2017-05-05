@@ -12,21 +12,6 @@ angular.module('controllers.surveyCtrl', [])
 
     $scope.selectedSite = siteService.getSelectedSite();
 
-    // TODO: insert code to determine which survey to administer. For now, wizard of oz
-    /*$scope.surveyInstance = {
-      id: '1',
-      siteId: '1',
-      date: 'a valid date string',
-      questions: [
-        {
-          question: 'Did you use the butternut squash recipe from last month?',
-          answerOptions: [
-            {display: 'Yes', count: 4},
-            {display: 'No', count: 0}
-          ]
-        }
-      ]
-    }*/
 		
 		var siteId = $scope.selectedSite['surveys'][0];
 		console.log(siteId, typeof(siteId));
@@ -40,7 +25,6 @@ angular.module('controllers.surveyCtrl', [])
 			$scope.surveyInstance.$save();
       $scope.questionNo++;
 
-      // TODO: backend stuff
     }
 
     $scope.startOver = function() {
