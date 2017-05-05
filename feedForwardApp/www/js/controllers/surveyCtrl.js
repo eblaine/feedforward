@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('controllers.surveyCtrl', [])
-  .controller('SurveyCtrl', ['$scope', '$location', '$stateParams', 'siteService', function($scope, $location, $stateParams, siteService) {
+  .controller('SurveyCtrl', ['$scope', '$location', '$stateParams', 'siteService', '$firebaseObject', function($scope, $location, $stateParams, siteService, $firebaseObject) {
     // With the new view caching in Ionic, Controllers are only called
     // when they are recreated or on app start, instead of every page change.
     // To listen for when this page is active (for example, to refresh data),
@@ -13,7 +13,7 @@ angular.module('controllers.surveyCtrl', [])
     $scope.selectedSite = siteService.getSelectedSite();
 
     // TODO: insert code to determine which survey to administer. For now, wizard of oz
-    $scope.surveyInstance = {
+    /*$scope.surveyInstance = {
       id: '1',
       siteId: '1',
       date: 'a valid date string',
@@ -26,12 +26,18 @@ angular.module('controllers.surveyCtrl', [])
           ]
         }
       ]
-    }
+    }*/
+		
+		var siteId = $scope.selectedSite['surveys'][0];
+		console.log(siteId, typeof(siteId));
+		var ref = firebase.database().ref('surveyInstances').child(siteId);
+		$scope.surveyInstance = $firebaseObject(ref);
 
     $scope.questionNo = 0;
 
     $scope.answerQuestion = function(answer) {
       answer.count++;
+			$scope.surveyInstance.$save();
       $scope.questionNo++;
 
       // TODO: backend stuff
