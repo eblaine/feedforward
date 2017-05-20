@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('controllers.checkinCtrl', [])
-  .controller('CheckinCtrl', ['$scope', '$location', '$stateParams', 'checkinService', 'siteService', 'lodash', function($scope, $location, $stateParams, checkinService, siteService, lodash) {
+  .controller('CheckinCtrl', ['$scope', '$location', '$stateParams', 'siteService', 'lodash', function($scope, $location, $stateParams, siteService, lodash) {
 
     $scope.constructSiteSearch = function(data) {
       return lodash.map(data, function(o) {return {'name': o.metadata.name, 'data': o};});

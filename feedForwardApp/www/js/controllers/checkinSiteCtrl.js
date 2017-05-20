@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('controllers.checkinSiteCtrl', [])
-  .controller('CheckinSiteCtrl', ['$scope', '$location', '$stateParams', 'checkinService', 'siteService', 'lodash', function($scope, $location, $stateParams, checkinService, siteService, lodash) {
+  .controller('CheckinSiteCtrl', ['$scope', '$location', '$stateParams', 'siteService', 'lodash', function($scope, $location, $stateParams, siteService, lodash) {
 
     $scope.updateSite = function(newSite) {
       $scope.selectedSite = newSite;
