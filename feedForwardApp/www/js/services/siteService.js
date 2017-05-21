@@ -28,6 +28,7 @@ angular.module('services.siteService', ['lodash'])
           }
 
           self.setSite = function(site) {
+            console.log('setting site to ' + JSON.stringify(site));
             self.selectedSite = site;
           }
 

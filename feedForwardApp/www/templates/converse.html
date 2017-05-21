@@ -1,0 +1,21 @@
+<ion-view view-title="{{site.name}}">
+  <ion-content class="padding">
+
+
+    <ion-list ng-repeat="info in foodInfo">
+    	<ion-item href="/#/tab/converse/demo">
+	    	<h2>Talk to clients about {{info.name}}</h2>
+	    	<img class="nutritionImage" src="{{info.url}}">
+	    	<div class="nutritionTextContainer">
+	    	</div>
+	    </ion-item>
+    </ion-list>
+
+    <ion-list>
+    	<ion-item ng-repeat="panel in nutritionPanels" href="{{panel.url}}">
+    		<div class="bold">{{panel.title}}</div>
+    		<div>{{panel.caption}}</div>
+    	</ion-item>
+	</ion-list>
+  </ion-content>
+</ion-view>

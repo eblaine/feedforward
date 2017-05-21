@@ -10,11 +10,11 @@ angular.module('controllers.checkoutCtrl', [])
     //$scope.$on('$ionicView.enter', function(e) {
     //});
     $scope.selectedSite = siteService.getSelectedSite();
-    $scope.sites = siteService.getSites();
-    $scope.updateSite = function(newSite) {
-      $scope.selectedSite = newSite;
-      siteService.setSite(newSite);
-    }
+    // $scope.sites = siteService.getSites();
+    // $scope.updateSite = function(newSite) {
+    //   $scope.selectedSite = newSite;
+    //   siteService.setSite(newSite);
+    // }
 
     // TODO add code to send responses to back end
   }]);

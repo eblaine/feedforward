@@ -6,12 +6,15 @@
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
 angular.module('feedForwardApp', ['ionic',
-  // mostly just placeholder-y
-  'controllers.checkinCtrl',
+  'controllers.siteSelectCtrl',
+  'controllers.converseCtrl',
   'controllers.checkoutCtrl',
   'controllers.surveyCtrl',
   'controllers.checkinSiteCtrl',
+  'controllers.conversePhrasesCtrl',
+  'controllers.converseDemoCtrl',
   'services.siteService',
+  'services.nutritionService',
   'directives.ffSearch',
   'ion-autocomplete',
   'firebase'])
@@ -49,25 +52,55 @@ angular.module('feedForwardApp', ['ionic',
 
   // Each tab has its own nav history stack:
 
-  .state('tab.sitecheckin', {
-    url: '/checkin/:siteId',
+  .state('tab.converse', {
+    url: '/converse',
     views: {
-      'tab-checkin': {
-        templateUrl: 'templates/tab-checkin-site.html',
-        controller: 'CheckinSiteCtrl'
+      'tab-converse': {
+        templateUrl: 'templates/converse.html',
+        controller: 'ConverseCtrl'
       }
     }
   })
 
-  .state('tab.checkin', {
-    url: '/checkin',
+  .state('tab.conversephrases', {
+    url: '/converse/phrases',
     views: {
-      'tab-checkin': {
-        templateUrl: 'templates/tab-checkin.html',
-        controller: 'CheckinCtrl'
+      'tab-converse': {
+        templateUrl: 'templates/converse-phrases.html',
+        controller: 'ConversePhrasesCtrl'
       }
     }
   })
+
+  .state('tab.conversedemo', {
+    url: '/converse/demo',
+    views: {
+      'tab-converse': {
+        templateUrl: 'templates/converse-demo.html',
+        controller: 'ConverseDemoCtrl'
+      }
+    }
+  })
+
+  // .state('tab.sitecheckin', {
+  //   url: '/checkin/:siteId',
+  //   views: {
+  //     'tab-checkin': {
+  //       templateUrl: 'templates/tab-checkin-site.html',
+  //       controller: 'CheckinSiteCtrl'
+  //     }
+  //   }
+  // })
+
+  // .state('tab.checkin', {
+  //   url: '/checkin',
+  //   views: {
+  //     'tab-checkin': {
+  //       templateUrl: 'templates/tab-checkin.html',
+  //       controller: 'CheckinCtrl'
+  //     }
+  //   }
+  // })
 
   .state('tab.checkout', {
       url: '/checkout',
@@ -79,14 +112,21 @@ angular.module('feedForwardApp', ['ionic',
       }
   })
 
-  .state('survey', {
-    url: '/survey/:siteId',
-    templateUrl: 'templates/survey.html',
-    controller: 'SurveyCtrl'
+  // .state('survey', {
+  //   url: '/survey/:siteId',
+  //   templateUrl: 'templates/survey.html',
+  //   controller: 'SurveyCtrl'
+  // });
+
+  .state('sites', {
+    url: '/sites',
+    templateUrl: 'templates/sites.html',
+    controller: 'SiteSelectCtrl'
   });
 
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/tab/checkin');
+  // $urlRouterProvider.otherwise('/tab/checkin');
+  $urlRouterProvider.otherwise('/sites');
 
 });
 
