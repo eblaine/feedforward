@@ -1,14 +1,10 @@
-<ion-view view-title="{{food.name}}">
+<ion-view view-title="{{food.name}}" cache-view="false">
   <ion-content class="padding">
-  	<h3>Talk to clients about {{food.name}}</h3>
-  	<img class="nutritionImage" src="{{food.url}}">
-
-  	<ion-list>
-  		<ion-item ng-repeat="panel in demoPanels" class="item-text-wrap">
-  			<h4>{{panel.title}}</h4>
-          	<p>{{panel.caption}}</p>
-  		</ion-item>
-  	</ion-list>
+    <ion-slide-box>
+      <ion-slide ng-repeat="image in food.images">
+        <img class="deckImage" src="{{image}}">
+      </ion-slide>
+    </ion-slide-box>
 
   </ion-content>
 </ion-view>

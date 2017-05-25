@@ -10,25 +10,25 @@
 	font-weight: bold;
 }
 
-.nutritionImage {
+
+/* Conversations view */
+.convoTopic {
 	width: 100%;
-	position: relative;
+	margin-bottom: -100px;
+	margin-top: -180px;
 }
 
-/* nutrition */
-.nutritionTextContainer {
-	position: absolute;
-	top: 30%;
-	display: block;
-	margin: auto;
-	text-align: center;
-    /*align-items: center;*/
-    /*justify-content: center;*/
+.convoTopicContainer {
+	width: 100%;
+	height: 300px;
+	overflow: hidden;
 }
 
-.nutritionText {
-	color: white;
-	font-size: 30px;
-	line-height: 30px;
-	/*font: helvetica 20px bold;*/
+/* Slide deck view */
+.deckImage {
+	width: 100%;
+	height: 90%;
+	margin-top: -30px;
+	margin-bottom: 10px;
+
 }

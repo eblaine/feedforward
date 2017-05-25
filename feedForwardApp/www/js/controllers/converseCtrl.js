@@ -32,7 +32,9 @@ angular.module('controllers.converseCtrl', [])
       $location.url(url);
     }
 
-    $scope
+    $scope.viewDemo = function() {
+      $location.path('/tab/converse/demo')
+    }
 
 
   }]);
