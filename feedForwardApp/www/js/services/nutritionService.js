@@ -1,14 +1,14 @@
 'use strict';
 
 angular.module('services.nutritionService', ['lodash'])
-  .service('nutritionService', function(lodash, $http, $firebaseArray) {
+  .service('nutritionService', function(lodash, $http, $firebaseArray, $firebaseObject) {
         var self = this;
         var nutritionRef = firebase.database().ref('nutrition_info');
 
         self.getFoodInfo = function(currFood) {
           if (!self.foodInfo) {
-            var query = nutritionRef.orderByChild('id').equalTo(currFood);
-            self.foodInfo = $firebaseArray(query);
+            var query = nutritionRef.child(currFood);
+            self.foodInfo = $firebaseObject(query);
           } 
           return self.foodInfo;
         }

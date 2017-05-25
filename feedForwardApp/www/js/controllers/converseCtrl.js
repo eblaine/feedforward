@@ -4,9 +4,12 @@ angular.module('controllers.converseCtrl', [])
   .controller('ConverseCtrl', ['$scope', '$location', '$stateParams', 'siteService', 'nutritionService', 'lodash', function($scope, $location, $stateParams, siteService, nutritionService, lodash) {
 
     $scope.site = siteService.getSelectedSite();
+    if (!$scope.site) {
+      return $location.path('/sites');
+    }
 
     $scope.foodInfo = nutritionService.getFoodInfo($scope.site.currFood);
-    console.log($scope.foodInfo[0]);
+    // console.log($scope.foodInfo[0]);
     $scope.nutritionPanels = [
       {
         title: 'Key Phrases',
@@ -28,6 +31,8 @@ angular.module('controllers.converseCtrl', [])
     $scope.panelClicked = function(url) {
       $location.url(url);
     }
+
+    $scope
 
 
   }]);
