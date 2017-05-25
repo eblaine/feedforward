@@ -29,6 +29,7 @@ angular.module('controllers.checkoutCtrl', [])
        feedbackInfo['nutrition'][index]['totalRatings'] = totalNum;
        feedbackInfo['comments'].push($scope.checkout.story);
        feedbackInfo.$save();
+       return $location.path('/tab/converse');
     };
     // $scope.sites = siteService.getSites();
     // $scope.updateSite = function(newSite) {
