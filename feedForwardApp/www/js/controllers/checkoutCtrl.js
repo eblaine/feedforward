@@ -18,7 +18,17 @@ angular.module('controllers.checkoutCtrl', [])
     self.feedbackInfo = $firebaseObject(feedbackRef);
     $scope.checkout = {};			
     $scope.sendCheckoutForm = function(){
-       console.log(typeof($scope.checkout.rating));
+       var index = $scope.selectedSite['currFood'];
+       var oldRating = feedbackInfo['nutrition'][index]['rating'];
+       var totalNum = feedbackInfo['nutrition'][index]['totalRatings'];
+       oldRating *= totalNum;
+       oldRating+= $scope.checkout.bonusQuestion;
+       totalNum++;
+       var newRating = oldRating/totalNum;
+       feedbackInfo['nutrition'][index]['rating'] = newRating;
+       feedbackInfo['nutrition'][index]['totalRatings'] = totalNum;
+       feedbackInfo['comments'].push($scope.checkout.story);
+       feedbackInfo.$save();
     };
     // $scope.sites = siteService.getSites();
     // $scope.updateSite = function(newSite) {
