@@ -4,15 +4,28 @@
     <div ng-if="selectedSite">
       <h2>How did it go today?</h2>
       <div class="padding-bottom-20">
-        <div>Do you see a lot of anything left over? (e.g. "carrots")</div>
-        <label class="item item-input">
-          <input type="text" placeholder="Item name" ng-model="checkout.notableLeftovers">
+        <div>Rate your experience at the site on a scale from 1-5</div>
+        <label class="item item-input item-select">
+           <div class = "input-label"> Rating </div>
+           <select ng-model = "checkout.rating">
+               <option ng-value = "1">1</option>
+               <option ng-value = "2">2</option>
+               <option ng-value = "3">3</option>
+               <option ng-value = "4">4</option>
+               <option ng-value = "5">5</option>
+          </select>              
         </label>
       </div>
       <div class="padding-bottom-20">
         <div>Tell us one thing (good or bad) about today's distribution.</div>
         <label class="item item-input">
           <textarea placeholder="Comments"  ng-model="checkout.story"></textarea>
+        </label>
+      </div>
+      <div class="padding-bottom-20">
+        <div>{{foodInfo.question}}</div>
+        <label class="item item-input">
+          <textarea placeholder="Answer" ng-model="checkout.bonusQuestions"></textarea>
         </label>
       </div>
       <ion-button class="button button-block" color="primary" ng-click="sendCheckoutForm()">Submit</ion-button>
