@@ -9,7 +9,6 @@ angular.module('services.nutritionService', ['lodash'])
           if (!self.foodInfo) {
             var query = nutritionRef.child(currFood);
             self.foodInfo = $firebaseObject(query);
-            console.log(self.foodInfo);
           } 
           return self.foodInfo;
         }

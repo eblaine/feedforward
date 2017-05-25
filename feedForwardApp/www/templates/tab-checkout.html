@@ -1,4 +1,4 @@
-<ion-view view-title="Volunteer Check-out">
+<ion-view view-title="Volunteer Check-out" cache-view="false">
   <ion-content class="padding">
 
     <div ng-if="selectedSite">
@@ -7,13 +7,7 @@
         <div>Rate your experience at the site on a scale from 1-5</div>
         <label class="item item-input item-select">
            <div class = "input-label"> Rating </div>
-           <select ng-model = "checkout.rating">
-               <option ng-value = "1">1</option>
-               <option ng-value = "2">2</option>
-               <option ng-value = "3">3</option>
-               <option ng-value = "4">4</option>
-               <option ng-value = "5">5</option>
-          </select>              
+           <select ng-model = "checkout.rating" ng-option="rating for rating in [1,2,3,4,5]"></select>              
         </label>
       </div>
       <div class="padding-bottom-20">
