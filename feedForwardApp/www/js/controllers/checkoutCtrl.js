@@ -14,7 +14,7 @@ angular.module('controllers.checkoutCtrl', [])
         return $location.path('/sites');
     }
     $scope.foodInfo = nutritionService.getFoodInfo($scope.selectedSite.currFood);
-    var feedbackRef = firebase.database().ref('feedback').child($scope.selectedSite['feedbackObj']);
+    var feedbackRef = firebase.database().ref('feedback').child($scope.selectedSite.$id);
     self.feedbackInfo = $firebaseObject(feedbackRef);
     $scope.checkout = {};			
     $scope.sendCheckoutForm = function(){
@@ -28,6 +28,13 @@ angular.module('controllers.checkoutCtrl', [])
        feedbackInfo['nutrition'][index]['rating'] = newRating;
        feedbackInfo['nutrition'][index]['totalRatings'] = totalNum;
        feedbackInfo['comments'].push($scope.checkout.story);
+       var avgRating = feedbackInfo['avgRating'];
+       var numFeedback = feedbackInfo['totalRatings'];
+       avgRating *= numFeedback;
+       avgRating += $scope.checkout.rating;
+       numFeedback++;
+       feedbackInfo['avgRating'] = avgRating/numFeedback;
+       feedbackInfo['totalRatings'] = numFeedback;
        feedbackInfo.$save();
        return $location.path('/tab/converse');
     };
