@@ -33,7 +33,11 @@ angular.module('controllers.converseCtrl', [])
     }
 
     $scope.viewDemo = function() {
-      $location.path('/tab/converse/demo')
+      $location.path('/tab/converse/demo');
+    }
+
+    $scope.goBackToSites = function(){
+      $location.path('/sites');
     }
 
 
