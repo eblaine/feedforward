@@ -18,7 +18,14 @@ angular.module('controllers.checkoutCtrl', [])
     self.feedbackInfo = $firebaseObject(feedbackRef);
     $scope.checkout = {};			
     $scope.sendCheckoutForm = function(){
-       var index = $scope.selectedSite['currFood'];
+       var key = $scope.selectedSite['currFood'];
+       var nutritionArray = feedbackInfo['nutrition'];
+       var index;
+       for(var x in nutritionArray){
+             if(key == nutritionArray[x]['infoID']){
+                  index = x;
+             }
+       }
        var oldRating = feedbackInfo['nutrition'][index]['rating'];
        var totalNum = feedbackInfo['nutrition'][index]['totalRatings'];
        oldRating *= totalNum;
