@@ -4,6 +4,11 @@ angular.module('controllers.conversePhrasesCtrl', [])
   .controller('ConversePhrasesCtrl', ['$scope', '$location', '$stateParams', 'siteService', 'nutritionService', 'lodash', function($scope, $location, $stateParams, siteService, nutritionService, lodash) {
 
     $scope.site = siteService.getSelectedSite();
+    var englishPhrases = {
+      name: 'English',
+      welcome: 'Welcome!',
+      recipeCard: 'Would you like a recipe card?'
+    };
 
     // todo get from elsewhere
     var phrases = {
@@ -12,25 +17,20 @@ angular.module('controllers.conversePhrasesCtrl', [])
         welcome: 'Bienvenidos!',
         recipeCard: 'Quiere receta usted?'
       },
-      english: {
-        name: 'English',
-        welcome: 'Welcome!',
-        recipeCard: 'Would you like a recipe card?'
-      },
       mandarin: {
         name: 'Mandarin',
-        welcome: 'mandarin Welcome!',
-        recipeCard: 'mandarin Would you like a recipe card?'
+        welcome: 'huān yíng',
+        recipeCard: 'Nǐ xiǎng yào shípǔ ma?'
       },
       russian: {
         name: 'Russian',
-        welcome: 'russian Welcome!',
-        recipeCard: 'russian Would you like a recipe card?'
+        welcome: 'dobro pozhalovat\'',
+        recipeCard: 'Khotite retsept?'
       },
       vietnamese: {
         name: 'Vietnamese',
-        welcome: 'viet Welcome!',
-        recipeCard: 'viet Would you like a recipe card?'
+        welcome: 'Chào mừng',
+        recipeCard: 'Bạn có muốn một công thức?'
       },
     };
 

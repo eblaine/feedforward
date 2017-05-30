@@ -15,8 +15,9 @@ angular.module('controllers.checkoutCtrl', [])
     }
     $scope.foodInfo = nutritionService.getFoodInfo($scope.selectedSite.currFood);
     var feedbackRef = firebase.database().ref('feedback').child($scope.selectedSite['feedbackObj']);
-    self.feedbackInfo = $firebaseObject(feedbackRef);
+    var feedbackInfo = $firebaseObject(feedbackRef);
     $scope.checkout = {};			
+
     $scope.sendCheckoutForm = function(){
        var index = $scope.selectedSite['currFood'];
        var oldRating = feedbackInfo['nutrition'][index]['rating'];

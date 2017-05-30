@@ -9,7 +9,8 @@ angular.module('controllers.converseCtrl', [])
     }
 
     $scope.foodInfo = nutritionService.getFoodInfo($scope.site.currFood);
-    // console.log($scope.foodInfo[0]);
+
+    console.log($scope.foodInfo);
     $scope.nutritionPanels = [
       {
         title: 'Key Phrases',
@@ -19,12 +20,12 @@ angular.module('controllers.converseCtrl', [])
       {
         title: 'Recipe cards',
         caption: 'From SHFB web site',
-        url: 'secondharvest.com'
+        url: '/'
       },
       {
         title: 'MyPlate',
         caption: 'Detailed information about MyPlate',
-        url: 'myplate.gov'
+        url: '/'
       }
     ]
 
