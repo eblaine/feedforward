@@ -1,4 +1,13 @@
 <ion-view view-title="{{site ? site.name : 'Conversations'}}" cache-view="false">
+    <ion-nav-bar align-title="center">
+      <ion-nav-back-button class="button-icon ion-arrow-left-c">
+      </ion-nav-back-button>
+      <ion-nav-buttons side="right">
+         <button class="button" ng-click="goBackToSites()">
+            Change Sites
+         </button>
+      </ion-nav-buttons>
+      </ion-nav-bar>
     <ion-content class="padding">
         <div ng-if="site">
             <h4>Today's Conversation Topic</h4>
