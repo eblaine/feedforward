@@ -1,14 +1,14 @@
 <ion-view view-title="{{site ? site.name : 'Conversations'}}" cache-view="false">
-    <ion-nav-bar align-title="center" class="bar bar-header bar-energized">
+    <ion-nav-bar align-title="center" class="tabColorOrange">
       <ion-nav-back-button class="button-icon ion-arrow-left-c">
       </ion-nav-back-button>
       <ion-nav-buttons side="right">
          <button class="button" ng-click="goBackToSites()">
-            Change Sites
+            <div style="color: #393e41">Change Sites</div>
          </button>
       </ion-nav-buttons>
     </ion-nav-bar>
-    <ion-content class="padding">
+    <ion-content class="padding shfb-content">
         <div ng-if="site">
           <div class="list card" ng-repeat="info in nutritionSrvc.nutritionInfo">
 
@@ -22,6 +22,9 @@
             </div> -->
 
             <ion-slide-box>
+              <ion-slide>
+                <img class="deckCoverImage" src="{{info.url}}">
+              </ion-slide>
               <ion-slide ng-repeat="image in info.images">
                 <img class="deckImage" src="{{image.url}}">
               </ion-slide>
@@ -38,7 +41,9 @@
           </div>
 
           <div class="card" ng-repeat="info in nutritionSrvc.permanentInfo">
-            <div class="item item-divider">{{info.title}}</div>
+            <div class="item item-divider">
+              <h2>{{info.title}}</h2>
+            </div>
             <div class="item item-text-wrap" ng-repeat="section in info.sections">
               <h2>{{section.header}}</h2>
               <p>{{section.text}}</p>

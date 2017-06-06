@@ -30,6 +30,12 @@ angular.module('controllers.siteSelectCtrl', [])
       });
     };
 
+    $scope.selectSite = function(item) {
+      console.log('click')
+      $scope.selectedSite = item;
+      $scope.data.searchText = item.name;
+    }
+
 
     $scope.changeView = function(item) {
       siteService.setSite(item.data);

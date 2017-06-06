@@ -11,6 +11,19 @@
 }
 
 
+.colorWhite {
+	color: white;
+}
+
+.centerText {
+	text-align: center;
+}
+
+.padding-20 {
+	padding: 20px;
+}
+
+
 /* Conversations view */
 .convoTopic {
 	width: 100%;
@@ -36,4 +49,62 @@
 	/*margin-top: -30px;
 	margin-bottom: 10px;*/
 
+}
+
+.tabs-color-active-positive {
+	background-color: white;
+}
+
+.tabColorOrange {
+	background-color: #f78d2f;
+}
+
+.tabColorOrange > .title {
+	color: white;
+}
+
+.shfbGreen {
+	background-color: #4dc285;
+}
+
+
+.deckCoverImage {
+	width: 100%;
+	position: relative;
+  	top: 50%;
+  	transform: translateY(40%);
+}
+
+.shfbWelcome {
+	text-align: center;
+	margin-bottom: 40px;
+}
+
+.shfbLogo {
+	width: 50%;
+	display: block;
+	margin: auto;
+	margin-top: 30px;
+	margin-bottom: 40px;
+}
+
+
+.item-divider  {
+	background-color: #ccdbdc;
+}
+
+.shfb-content > h1, h2, h3, h4, h5, div, p, b {
+	color: #393e41;
+}
+
+div.tab-nav {
+	background-color: #f78d2f;
+}
+
+.bar-header {
+	background-color: #f78d2f!important;
+}
+
+.bar-header > div {
+	color: white!important;
 }
