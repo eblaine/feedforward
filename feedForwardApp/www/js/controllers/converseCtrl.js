@@ -8,34 +8,34 @@ angular.module('controllers.converseCtrl', [])
       return $location.path('/sites');
     }
 
-    $scope.foodInfo = nutritionService.getFoodInfo($scope.site.currFood);
+    $scope.nutritionSrvc = nutritionService;
 
-    console.log($scope.foodInfo);
-    $scope.nutritionPanels = [
-      {
-        title: 'Key Phrases',
-        caption: 'In the language of this site',
-        url: '/#/tab/converse/phrases'
-      },
-      {
-        title: 'Recipe cards',
-        caption: 'From SHFB web site',
-        url: '/'
-      },
-      {
-        title: 'MyPlate',
-        caption: 'Detailed information about MyPlate',
-        url: '/'
-      }
-    ]
+    // console.log($scope.foodInfo);
+    // $scope.nutritionPanels = [
+    //   {
+    //     title: 'Key Phrases',
+    //     caption: 'In the language of this site',
+    //     url: '/#/tab/converse/phrases'
+    //   },
+    //   {
+    //     title: 'Recipe cards',
+    //     caption: 'From SHFB web site',
+    //     url: '/'
+    //   },
+    //   {
+    //     title: 'MyPlate',
+    //     caption: 'Detailed information about MyPlate',
+    //     url: '/'
+    //   }
+    // ]
 
-    $scope.panelClicked = function(url) {
-      $location.url(url);
-    }
+    // $scope.panelClicked = function(url) {
+    //   $location.url(url);
+    // }
 
-    $scope.viewDemo = function() {
-      $location.path('/tab/converse/demo');
-    }
+    // $scope.viewDemo = function() {
+    //   $location.path('/tab/converse/demo');
+    // }
 
     $scope.goBackToSites = function(){
       $location.path('/sites');

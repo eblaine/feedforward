@@ -3,15 +3,38 @@
 angular.module('services.nutritionService', ['lodash'])
   .service('nutritionService', function(lodash, $http, $firebaseArray, $firebaseObject) {
         var self = this;
-        var nutritionRef = firebase.database().ref('nutrition_info');
+        var nutritionRef = firebase.database().ref('nutritionInfo');
+        var nutritionArray = $firebaseArray(nutritionRef)
 
-        self.getFoodInfo = function(currFood) {
-          if (!self.foodInfo) {
-            var query = nutritionRef.child(currFood);
-            self.foodInfo = $firebaseObject(query);
-          } 
-          return self.foodInfo;
-        }
+        // self.getFoodInfo = function(currFood) {
+        //   if (!self.foodInfo) {
+        //     var query = nutritionRef.child(currFood);
+        //     self.foodInfo = $firebaseObject(query);
+        //   } 
+        //   return self.foodInfo;
+        // }
+
+        var activeNutritionRef = firebase.database().ref('activeNutrition');
+        var activeNutrition = $firebaseArray(activeNutritionRef);
+        nutritionArray.$loaded()
+        .then(function(){
+            self.activeIds = lodash.map(activeNutrition, 'id');
+
+            nutritionArray.$loaded()
+            .then(function() {
+              self.nutritionInfo = []
+              for (var nutId in self.activeIds) {
+                self.nutritionInfo.push(nutritionArray[nutId]);
+              }
+
+            });
+
+        });
+
+        var permInfoRef = firebase.database().ref('permanentInfo');
+        self.permanentInfo = $firebaseArray(permInfoRef);
+
+        
 
 //           function initSites() {
 //             var query = sitesRef.orderByChild('id');

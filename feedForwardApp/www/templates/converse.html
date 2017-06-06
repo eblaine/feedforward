@@ -1,5 +1,5 @@
 <ion-view view-title="{{site ? site.name : 'Conversations'}}" cache-view="false">
-    <ion-nav-bar align-title="center">
+    <ion-nav-bar align-title="center" class="bar bar-header bar-energized">
       <ion-nav-back-button class="button-icon ion-arrow-left-c">
       </ion-nav-back-button>
       <ion-nav-buttons side="right">
@@ -7,14 +7,49 @@
             Change Sites
          </button>
       </ion-nav-buttons>
-      </ion-nav-bar>
+    </ion-nav-bar>
     <ion-content class="padding">
         <div ng-if="site">
-            <h4>Today's Conversation Topic</h4>
+          <div class="list card" ng-repeat="info in nutritionSrvc.nutritionInfo">
+
+            <div class="item item-divider">
+              <h2>{{info.name}}</h2>
+              
+            </div>
+
+            <!-- <div class="item item-image">
+              <img src="cover.jpg">
+            </div> -->
+
+            <ion-slide-box>
+              <ion-slide ng-repeat="image in info.images">
+                <img class="deckImage" src="{{image.url}}">
+              </ion-slide>
+            </ion-slide-box>
+
+
+
+            <!-- <a class="item item-icon-left assertive" href="#"> -->
+              <!-- <i class="icon ion-music-note"></i>
+              Start listening -->
+              <!-- <p>Swipe for more</p> -->
+            <!-- </a> -->
+
+          </div>
+
+          <div class="card" ng-repeat="info in nutritionSrvc.permanentInfo">
+            <div class="item item-divider">{{info.title}}</div>
+            <div class="item item-text-wrap" ng-repeat="section in info.sections">
+              <h2>{{section.header}}</h2>
+              <p>{{section.text}}</p>
+            </div>
+          </div>
+
+            <!-- <h4>Today's Conversation Topic</h4>
             <p>How well do the clients know {{foodInfo.name}}?</p>
             <div class="convoTopicContainer">
                 <img class="convoTopic" src="{{foodInfo.images[0].url}}" ng-click=viewDemo()>
-            </div>
+            </div> -->
             <!-- <ion-list ng-repeat="info in foodInfo">
             	<ion-item href="/#/tab/converse/demo">
         	    	<h2>Talk to clients about {{info.name}}</h2>
@@ -24,12 +59,12 @@
         	    </ion-item>
             </ion-list> -->
 
-            <ion-list>
+            <!-- <ion-list>
             	<ion-item ng-repeat="panel in nutritionPanels" href="{{panel.url}}">
             		<div class="bold">{{panel.title}}</div>
             		<div>{{panel.caption}}</div>
             	</ion-item>
-        	</ion-list>
+        	</ion-list> -->
         </div>
     </ion-content>
 
