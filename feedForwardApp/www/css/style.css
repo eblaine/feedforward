@@ -69,10 +69,12 @@
 
 
 .deckCoverImage {
-	width: 100%;
+	width: 75%;
 	position: relative;
-  	top: 50%;
-  	transform: translateY(40%);
+	display: block;
+	margin: auto;
+  	/*top: 50%;
+  	transform: translateY(40%);*/
 }
 
 .shfbWelcome {

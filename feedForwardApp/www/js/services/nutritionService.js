@@ -14,34 +14,41 @@ angular.module('services.nutritionService', ['lodash'])
         //   return self.foodInfo;
         // }
 
+        self.nutritionInfo = []
+
         var activeNutritionRef = firebase.database().ref('activeNutrition');
         var activeNutrition = $firebaseArray(activeNutritionRef);
-        nutritionArray.$loaded()
-        .then(function(){
-            self.activeIds = lodash.map(activeNutrition, 'id');
-
-            nutritionArray.$loaded()
-            .then(function() {
-              self.nutritionInfo = []
-              for (var nutId in self.activeIds) {
-                self.nutritionInfo.push(nutritionArray[nutId]);
-              }
-
-            });
-
-        });
+        
 
         var permInfoRef = firebase.database().ref('permanentInfo');
         self.permanentInfo = $firebaseArray(permInfoRef);
 
         self.filterNutritionBySite = function(currNutrition) {
-          var keysToFind = lodash.keys(currNutrition);
-          self.nutritionInfo = lodash.filter(self.nutritionInfo, function(info) {
-            return lodash.find(info.sitesDeployed, function(site) {
-              return lodash.find(keysToFind, function(o) { return o === site.nutritionSiteID; });
-            });
+          nutritionArray.$loaded()
+          .then(function(){
+              self.activeIds = lodash.map(activeNutrition, 'id');
+
+              nutritionArray.$loaded()
+              .then(function() {
+                self.nutritionInfo = []
+                for (var nutId in self.activeIds) {
+                  self.nutritionInfo.push(nutritionArray[nutId]);
+                }
+                var keysToFind = lodash.keys(currNutrition);
+
+                self.nutritionInfo = lodash.filter(self.nutritionInfo, function(info) {
+                  return lodash.find(info.sitesDeployed, function(site) {
+                    return lodash.find(keysToFind, function(o) { return o === site.nutritionSiteID; });
+                  });
+                });
+
+              });
+
           });
+          
         }
+
+
 
         
 
