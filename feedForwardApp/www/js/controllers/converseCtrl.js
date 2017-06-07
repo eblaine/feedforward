@@ -9,6 +9,7 @@ angular.module('controllers.converseCtrl', [])
     }
 
     $scope.nutritionSrvc = nutritionService;
+    nutritionService.filterNutritionBySite($scope.site.currNutrition)
 
     // console.log($scope.foodInfo);
     // $scope.nutritionPanels = [

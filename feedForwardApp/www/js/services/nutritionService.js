@@ -34,6 +34,15 @@ angular.module('services.nutritionService', ['lodash'])
         var permInfoRef = firebase.database().ref('permanentInfo');
         self.permanentInfo = $firebaseArray(permInfoRef);
 
+        self.filterNutritionBySite = function(currNutrition) {
+          var keysToFind = lodash.keys(currNutrition);
+          self.nutritionInfo = lodash.filter(self.nutritionInfo, function(info) {
+            return lodash.find(info.sitesDeployed, function(site) {
+              return lodash.find(keysToFind, function(o) { return o === site.nutritionSiteID; });
+            });
+          });
+        }
+
         
 
 //           function initSites() {
