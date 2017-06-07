@@ -17,12 +17,14 @@
           <textarea placeholder="Comments"  ng-model="checkout.story"></textarea>
         </label>
       </div>
-      <div class="padding-bottom-20">
-        <div>{{foodInfo.question}}</div>
+      <div ng-if = "bonusQuestions" >
+      <div class="padding-bottom-20" ng-repeat = "question in bonusQuestions">
+        <div> {{question.question}} </div>
         <label class="item item-input item-select">
            <div class = "input-label"> Knowledge Rating </div>
-           <select ng-model = "checkout.bonusQuestion" ng-options="rating for rating in [1,2,3,4,5,6,7,8,9,10]"></select>              
+           <select ng-model = "question.answer" ng-options="rating for rating in [1,2,3,4,5,6,7,8,9,10]"></select>              
         </label>
+      </div>
       </div>
       <ion-button class="button button-block shfbGreen" ng-click="sendCheckoutForm()">
         <div class="colorWhite">Submit</div>
