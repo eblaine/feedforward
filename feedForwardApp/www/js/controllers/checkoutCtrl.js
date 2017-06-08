@@ -55,7 +55,7 @@ feedbackQuestionArray.$loaded().then(function(feedback){
             
 feedbackQuestionArray.$loaded().then(function(feedback){
     for(var question in $scope.bonusQuestionID){
-          $scope.bonusQuestions.push({question: feedback[$scope.bonusQuestionID[question].questionID]['question'], answer: -1, id: $scope.bonusQuestionID[question].questionKey});
+          $scope.bonusQuestions.push({question: feedback[$scope.bonusQuestionID[question].questionID]['question'], answer: 0, id: $scope.bonusQuestionID[question].questionKey});
      }
 });
      });
