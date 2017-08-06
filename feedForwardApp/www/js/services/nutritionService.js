@@ -23,6 +23,18 @@ angular.module('services.nutritionService', ['lodash'])
         var permInfoRef = firebase.database().ref('permanentInfo');
         self.permanentInfo = $firebaseArray(permInfoRef);
 
+        function inSitesDeployed(info, keysToFind) {
+          return lodash.find(info.sitesDeployed, function(site) {
+            return lodash.find(keysToFind, function(o) { return o === site.nutritionSiteID; });
+          });
+        };
+
+        function inActiveNutrition(nutritionId) {
+          return lodash.find(self.activeIds, function(activeId) {
+            return nutritionId === activeId;
+          });
+        }
+
         self.filterNutritionBySite = function(currNutrition) {
           nutritionArray.$loaded()
           .then(function(){
@@ -31,16 +43,17 @@ angular.module('services.nutritionService', ['lodash'])
               nutritionArray.$loaded()
               .then(function() {
                 self.nutritionInfo = []
-                for (var nutId in self.activeIds) {
-                  self.nutritionInfo.push(nutritionArray[nutId]);
-                }
+                // for (var nutId in self.activeIds) {
+                //   self.nutritionInfo.push(nutritionArray[nutId]);
+                // }
                 var keysToFind = lodash.keys(currNutrition);
 
-                self.nutritionInfo = lodash.filter(self.nutritionInfo, function(info) {
-                  return lodash.find(info.sitesDeployed, function(site) {
-                    return lodash.find(keysToFind, function(o) { return o === site.nutritionSiteID; });
-                  });
-                });
+                for (var nutId in nutritionArray) {
+                  if (inSitesDeployed(nutritionArray[nutId], keysToFind) ||
+                    inActiveNutrition(nutId)) {
+                      self.nutritionInfo.push(nutritionArray[nutId]);
+                    }
+                }
 
               });
 
