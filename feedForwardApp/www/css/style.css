@@ -37,18 +37,9 @@
 	overflow: hidden;
 }
 
-/* Slide deck view */
-.deckImage {
-	/*width: 75%;*/
-	width: 75%;
-	height: 75%;
-	display: block;
-	margin-left: auto;
-	margin-right: auto;
-	/*height: 90%;*/
-	/*margin-top: -30px;
-	margin-bottom: 10px;*/
-
+/* slider in converse cards */
+img.deckImage {
+	width: 100%;
 }
 
 .tabs-color-active-positive {
@@ -65,16 +56,6 @@
 
 .shfbGreen {
 	background-color: #4dc285;
-}
-
-
-.deckCoverImage {
-	width: 75%;
-	position: relative;
-	display: block;
-	margin: auto;
-  	/*top: 50%;
-  	transform: translateY(40%);*/
 }
 
 .shfbWelcome {
