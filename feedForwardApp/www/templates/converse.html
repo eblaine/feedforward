@@ -1,46 +1,44 @@
 <ion-view view-title="{{site ? site.name : 'Conversations'}}" cache-view="false">
-    <ion-nav-bar align-title="center" class="tabColorOrange">
-      <ion-nav-back-button class="button-icon ion-arrow-left-c">
-      </ion-nav-back-button>
-      <ion-nav-buttons side="right">
-         <button class="button" ng-click="goBackToSites()">
-            <div style="color: #393e41">Change Sites</div>
-         </button>
-      </ion-nav-buttons>
-    </ion-nav-bar>
-    <ion-content class="padding shfb-content">
-        <div ng-if="site">
-          <!-- <pre>{{nutritionSrvc.nutritionInfo | json}}</pre> -->
-          <div class="list card" ng-repeat="info in nutritionSrvc.nutritionInfo">
-
-            <div class="item item-divider">
-              <h2>{{info.name}}</h2>
-              
-            </div>
-
-            <ion-slide-box>
-              <ion-slide>  
-                <img src="{{info.url}}" class="deckImage">
-              </ion-slide>
-              <ion-slide class="item item-text-wrap" ng-repeat="image in info.images">
-                <img src="{{image.url}}" class="deckImage">
-              </ion-slide>
-            </ion-slide-box>
-            <p ng-if="info.text" class="item item-text-wrap">{{info.text}}</p>
-
-          </div>
-
-          <div class="card" ng-repeat="info in nutritionSrvc.permanentInfo">
-            <div class="item item-divider">
-              <h2>{{info.title}}</h2>
-            </div>
-            <div class="item item-text-wrap" ng-repeat="section in info.sections">
-              <h2>{{section.header}}</h2>
-              <p>{{section.text}}</p>
-            </div>
-          </div>
-
+  <ion-nav-bar align-title="center" class="tabColorOrange">
+    <ion-nav-back-button class="button-icon ion-arrow-left-c">
+    </ion-nav-back-button>
+    <ion-nav-buttons side="right">
+      <button class="button" ng-click="goBackToSites()">
+        <div style="color: #393e41">Change Sites</div>
+      </button>
+    </ion-nav-buttons>
+  </ion-nav-bar>
+  <ion-content class="padding shfb-content">
+    <div ng-if="site">
+      <!-- <pre>{{nutritionSrvc.nutritionInfo | json}}</pre> -->
+      <div class="list card" ng-repeat="info in nutritionSrvc.nutritionInfo">
+        <div class="item item-divider">
+          <h2>{{info.name}}</h2>
         </div>
-    </ion-content>
+
+        <ion-slide-box>
+          <ion-slide>  
+            <img src="{{info.url}}" class="deckImage">
+          </ion-slide>
+          <ion-slide class="item item-text-wrap" ng-repeat="image in info.images">
+            <img src="{{image.url}}" class="deckImage">
+          </ion-slide>
+        </ion-slide-box>
+        <p ng-if="info.text" class="item item-text-wrap">{{info.text}}</p>
+
+      </div>
+
+      <div class="card" ng-repeat="info in nutritionSrvc.permanentInfo">
+        <div class="item item-divider">
+          <h2>{{info.title}}</h2>
+        </div>
+        <div class="item item-text-wrap" ng-repeat="section in info.sections">
+          <h2>{{section.header}}</h2>
+          <p>{{section.text}}</p>
+        </div>
+      </div>
+
+    </div>
+  </ion-content>
 
 </ion-view>
