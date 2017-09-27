@@ -10,7 +10,26 @@
   </ion-nav-bar>
   <ion-content class="padding shfb-content">
     <div ng-if="site">
-      <!-- <pre>{{nutritionSrvc.nutritionInfo | json}}</pre> -->
+      <div class="card">
+        <div class="item item-divider">
+          <h2>About {{site.name}}</h2>
+        </div>
+        <div class="item item-text-wrap">
+          <h2>Logistics</h2>
+          <p><b>Type: </b>{{site.type}}</p>
+          <p><b>Time: </b>{{site.time}}</p>
+          <p><b>Address: </b>{{site.address}}</p>
+        </div>
+        <div class="item item-text-wrap">
+          <h2>Languages</h2>
+          <p ng-repeat="lang in site.languages">{{lang}}</p>
+        </div>
+        <div class="item item-text-wrap">
+          <h2>Member Count</h2>
+          <p>{{site.memberCount}}</p>
+        </div>
+      </div>
+
       <div class="list card" ng-repeat="info in nutritionSrvc.nutritionInfo">
         <div class="item item-divider">
           <h2>{{info.name}}</h2>
