@@ -7,6 +7,13 @@ angular.module('controllers.siteSelectCtrl', [])
       return lodash.map(data, function(o) {return {'name': o.name, 'data': o};});
     }
 
+    $scope.siteTypes = {
+      'Brown Bag': 'BB',
+      'KidsNow': 'KN',
+      'Family Harvest': 'FH',
+      'Produce Mobile': 'PM'
+    };
+
     var sites = siteService.getSites();
     sites.$loaded()
     .then(function (data) {

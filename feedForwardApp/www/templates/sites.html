@@ -16,7 +16,7 @@
         <input type="text" ng-model="data.searchText" placeholder="Type site name..." ng-change="updateMatches()">
       </label>
       <ion-list>
-        <ion-item ng-repeat="item in matches" ng-click="changeView(item)">{{item.name}}</ion-item>
+        <ion-item ng-repeat="item in matches | orderBy: 'name'" ng-click="changeView(item)">{{item.name}} ({{siteTypes[item.data.type]}})</ion-item>
       </ion-list>
 
 
